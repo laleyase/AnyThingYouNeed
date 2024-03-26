@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnyThingYouNeed.Entities.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AnyThingYouNeed.Entities.Concrate
 {
-    public class Request
+    public class Request:IEntity
     {
         public int ID { get; set; }
         public string Name { get; set; }
