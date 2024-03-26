@@ -11,7 +11,9 @@ namespace AnyThingYouNeed.Entities.Concrate
     {
         public int UserID { get; set; }
         public string UserName  { get; set; }
-        public string Password { get; set; } 
+        public string Password { get; set; }
+        public string EMail { get; set; }
+        public string PHoneNumber { get; set; }
     }
 
    
