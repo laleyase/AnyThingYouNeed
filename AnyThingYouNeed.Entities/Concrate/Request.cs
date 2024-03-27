@@ -12,7 +12,9 @@ namespace AnyThingYouNeed.Entities.Concrate
         public int ID { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
-        public int RoomNumber { get; set; }
+        public string EMail { get; set; }
+        public string PhoneNumber { get; set; }
+        public int? RoomNumber { get; set; }
         public bool Hair { get; set; }
         public bool Skin { get; set; }
         public bool Teeth { get; set; }
