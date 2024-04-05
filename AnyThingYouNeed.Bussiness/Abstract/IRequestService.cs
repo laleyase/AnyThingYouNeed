@@ -11,5 +11,9 @@ namespace AnyThingYouNeed.Bussiness.Abstract
     public interface IRequestService
     {
         public ResultModelClas AddRequest(Request request);
+        public List<Request> GetAllRequest();
+        public Request GetRequest(int id);
+        public ResultModelClas UpdateRequest(Request request);
+        public ResultModelClas DeleteRequest(Request request);
     }
 }

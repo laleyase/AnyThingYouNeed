@@ -1,15 +1,28 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
-using Microsoft.Extensions.Hosting;
+using AnyThingYouNeed.Bussiness.Abstract;
+using AnyThingYouNeed.Bussiness.Concrate;
+using AnyThingYouNeed.DataAccess.Abstract;
+using AnyThingYouNeed.DataAccess.Concrate;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Host.ConfigureLogging(logging =>
+{
+    logging.AddConsole();
+    logging.AddDebug();
+});
+
+builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
 
-var app = builder.Build();
+builder.Services.AddScoped<AnyThingYouNeedContext>();
+builder.Services.AddScoped<IUserService, UserManager>();
+builder.Services.AddScoped<IUserDal, UserDal>();
+builder.Services.AddScoped<IRequestService, RequestManager>();
+builder.Services.AddScoped<IRequestDal, RequestDal>();
 
+var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
 {

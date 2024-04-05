@@ -20,7 +20,16 @@ namespace AnyThingYouNeed.Bussiness.Concrate
         {
             _requestDal = requestDal;
         }
-        public ResultModelClas AddRequest(Request request)
+
+        public List<Request> GetAllRequest()
+        {
+            return _requestDal.GetAll();
+        }
+        public Request GetRequest(int id)
+        {
+            return _requestDal.Get(p => p.ID == id);
+        }
+        public ResultModelClas UpdateRequest(Request request)
         {
             ResultModelClas resultModele = new ResultModelClas();
             resultModele.Success = false;
@@ -28,8 +37,8 @@ namespace AnyThingYouNeed.Bussiness.Concrate
             try
             {
                 ValidationTool.Validate(new RequestValidator(), request);
-                _requestDal.Add(request);
-                resultModele.Message = "Your request is sent. We will be contacting you asp.";
+                _requestDal.Update(request);
+                resultModele.Message = "Your request is sent. We will be contacting you asp.";
                 resultModele.Success = true;
             }
             catch (Exception ex)
@@ -39,6 +48,34 @@ namespace AnyThingYouNeed.Bussiness.Concrate
 
             }
             return resultModele;
+
+
+        }
+        public ResultModelClas AddRequest(Request request)
+        {
+
+            ResultModelClas resultModele = new ResultModelClas();
+            resultModele.Success = false;
+            resultModele.Message = "";
+            try
+            {
+                ValidationTool.Validate(new RequestValidator(), request);
+                _requestDal.Add(request);
+                resultModele.Message = "Your request is sent. We will be contacting you asp.";
+                resultModele.Success = true;
+            }
+            catch (Exception ex)
+            {
+                resultModele.Message = ex.Message;
+                resultModele.Success = false;
+
+            }
+            return resultModele;
+        }
+
+        public ResultModelClas DeleteRequest(Request request)
+        {
+            throw new NotImplementedException();
         }
     }
 }

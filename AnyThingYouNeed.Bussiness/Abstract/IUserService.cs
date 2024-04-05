@@ -11,5 +11,6 @@ namespace AnyThingYouNeed.Bussiness.Abstract
     public interface IUserService
     {
         LoginResultModel Login(LoginRequestModel loginRequest);
+        
     }
 }
