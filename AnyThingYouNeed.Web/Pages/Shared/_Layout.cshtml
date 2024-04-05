@@ -20,7 +20,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="#page-top"><img src="~/template/assets/img/navbar-logo.svg" alt="..." /></a>
+            <a class="navbar-brand" href="#page-top"><img class="logo" src="~/template/assets/img/navbar-logo.svg" alt="..." /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars ms-1"></i>
@@ -79,4 +79,38 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
 </body>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <style>
+        .portfolio-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* Adjust as needed */
+        }
+
+        .portfolio-item {
+            width: calc(100% - 20px); /* Adjust the width based on your design and spacing preferences */
+            margin-bottom: 50px; /* Adjust the margin between items */
+        }
+
+            .portfolio-item img {
+                width: 400%;
+                height: 300px; /* Adjust the height based on your design preferences */
+                object-fit: cover; /* Maintain aspect ratio and cover the container */
+            }
+
+        .logo {
+            transform: scale(4); /* Adjust the scale factor as needed */
+        }
+    </style>
+</head>
+<body>
+    <!-- Your HTML content goes here -->
+</body>
+
 </html>

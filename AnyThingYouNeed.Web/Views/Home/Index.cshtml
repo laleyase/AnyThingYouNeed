@@ -2,17 +2,31 @@
     ViewBag.Title = "Home Page";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
-<!-- Services-->
 <section class="page-section" id="services">
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Welcome to Emir Bazaar</h2>
-            <h3 class="section-subheading text-muted">
+            <p class="section-subheading text-muted">
                 At Emir Bazaar, nestled within the luxurious confines of Elit World Grand Hotel, we are dedicated to providing an unparalleled shopping and service experience for our esteemed clientele. As a premier destination for tourists from around the globe, we offer a curated selection of touristic and traditional products, alongside essential tech accessories and personal care items to cater to your every need.
-            </h3>
-        </div>
+            </p>
+            <hr class="divider" />
+            <h2 class="section-heading text-uppercase">Our Vision</h2>
+            <p class="section-subheading text-muted">
+                Our vision at Emir Bazaar is to be your one-stop destination for all your travel essentials and indulgences. We strive to exceed expectations by offering a diverse range of high-quality products and services tailored to enhance your stay in İstanbul.
+            </p>
+            <hr class="divider" />
+            <h2 class="section-heading text-uppercase">Why Choose Us?</h2>
+            <p class="section-subheading text-muted">
+                At Emir Bazaar, we take pride in offering only the finest products and services, curated with meticulous attention to detail to meet the discerning needs of our international clientele. Located within the prestigious Elit World Grand Hotel, we provide unparalleled convenience for guests seeking a convenient shopping experience without having to venture far from their accommodations. With years of experience catering to tourists visiting Istanbul, our knowledgeable staff are dedicated to providing personalized assistance and recommendations to ensure your satisfaction.
+            </p>
+            <p class="section-subheading text-muted">
+                At Emir Bazaar, we are committed to exceeding your expectations and enhancing your stay in Istanbul. Discover a world of convenience, luxury, and indulgence with us today.
+            </p>
+            <a class="btn btn-primary btn-xl text-uppercase btn-explore-services" href="#about">Explore Our Services</a>
 
+        </div>
     </div>
+</section>
 </section>
 <!-- Portfolio Grid-->
 <section class="page-section bg-light" id="portfolio">
@@ -21,7 +35,7 @@
             <h2 class="section-heading text-uppercase">Services</h2>
             <h3 class="section-subheading text-muted">Our vision at Emir Bazaar is to be your one-stop destination for all your travel essentials and indulgences. We strive to exceed expectations by offering a diverse range of high-quality products and services tailored to enhance your stay in İstanbul.</h3>
         </div>
-        <div class="row">
+        <div class="row portfolio-container">
             <div class="col-lg-4 col-sm-6 mb-4">
                 <!-- Portfolio item 1-->
                 <div class="portfolio-item">
@@ -29,7 +43,7 @@
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="~/template/assets/img/portfolio/1.jpg" alt="..." />
+                        <img class="img-fluid" src="~/template/assets/img/portfolio/1.jpg" alt="Touristic Souvenirs" />
                     </a>
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">Touristic Souvenirs</div>
@@ -44,11 +58,11 @@
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="~/template/assets/img/portfolio/2.jpg" alt="..." />
+                        <img class="img-fluid" src="~/template/assets/img/portfolio/2.jpg" alt="Traditional Handicrafts" />
                     </a>
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">Traditional Handicrafts</div>
-                        <div class="portfolio-caption-subheading text-muted">Click on the image for detais.</div>
+                        <div class="portfolio-caption-subheading text-muted">Click on the image for details.</div>
                     </div>
                 </div>
             </div>
@@ -59,7 +73,7 @@
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="~/template/assets/img/portfolio/3.jpg" alt="..." />
+                        <img class="img-fluid" src="~/template/assets/img/portfolio/3.jpg" alt="Tech Essentials" />
                     </a>
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">Tech Essentials</div>
@@ -67,14 +81,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+            <!-- Repeat similar markup for other portfolio items -->
+            <div class="col-lg-4 col-sm-6 mb-4">
                 <!-- Portfolio item 4-->
                 <div class="portfolio-item">
                     <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="~/template/assets/img/portfolio/4.jpg" alt="..." />
+                        <img class="img-fluid" src="~/template/assets/img/portfolio/4.jpg" alt="Personal Care" />
                     </a>
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">Personal Care</div>
@@ -82,14 +97,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+            <div class="col-lg-4 col-sm-6 mb-4">
                 <!-- Portfolio item 5-->
                 <div class="portfolio-item">
                     <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="~/template/assets/img/portfolio/5.jpg" alt="..." />
+                        <img class="img-fluid" src="~/template/assets/img/portfolio/5.jpg" alt="Convenient Transfers" />
                     </a>
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">Convenient Transfers</div>
@@ -97,14 +112,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-sm-6">
+            <div class="col-lg-4 col-sm-6 mb-4">
                 <!-- Portfolio item 6-->
                 <div class="portfolio-item">
                     <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal6">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
                         </div>
-                        <img class="img-fluid" src="~/template/assets/img/portfolio/6.jpg" alt="..." />
+                        <img class="img-fluid" src="~/template/assets/img/portfolio/6.jpg" alt="VIP Tours" />
                     </a>
                     <div class="portfolio-caption">
                         <div class="portfolio-caption-heading">VIP Tours</div>
@@ -116,6 +131,38 @@
     </div>
 </section>
 
+
+<!-- Make Request Section -->
+
+<section class="page-section" id="about">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Make Request</h2>
+            <h3 class="section-subheading text-muted">Fill out the form below to make a request.</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <form id="requestForm" name="requestForm" method="post" action="#">
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="name" type="text" placeholder="Enter your name..." />
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="email" type="email" placeholder="name@example.com" />
+                        <label for="email">Email address</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="message" placeholder="Enter your message here..." style="height: 10rem"></textarea>
+                        <label for="message">Message</label>
+                    </div>
+                    <div class="d-grid">
+                        <button class="btn btn-primary btn-xl text-uppercase" type="submit">Submit Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 
@@ -276,3 +323,24 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Function to handle smooth scrolling to a target element
+    function scrollToElement(elementId) {
+        var targetElement = document.getElementById(elementId);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    // Event listener for the "Explore Our Services" button
+    document.addEventListener('DOMContentLoaded', function () {
+        var exploreButton = document.querySelector('.btn-explore-services');
+        if (exploreButton) {
+            exploreButton.addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent default anchor behavior
+                scrollToElement('portfolio'); // Scroll to the 'services' section
+            });
+        }
+    });
+</script>
