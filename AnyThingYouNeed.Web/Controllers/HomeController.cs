@@ -1,5 +1,6 @@
 ﻿using AnyThingYouNeed.Bussiness.Abstract;
 using AnyThingYouNeed.Entities.Concrate;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AnyThingYouNeed.Web.Controllers
@@ -15,6 +16,10 @@ namespace AnyThingYouNeed.Web.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        [AllowAnonymous]
+        
         public JsonResult MakeRequest(Request model)
         {
 
