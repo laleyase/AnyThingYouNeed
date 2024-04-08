@@ -11,12 +11,16 @@ namespace AnyThingYouNeed.DataAccess.Concrate
 {
     public class UserDal : IUserDal
     {
+        private readonly AnyThingYouNeedContext _context;
+
+        public UserDal(AnyThingYouNeedContext context)
+        {
+            _context = context;
+        }
         public User Get(Expression<Func<User, bool>> filter)
         {
-            using (AnyThingYouNeedContext context = new AnyThingYouNeedContext())
-            {
-                return context.Set<User>().SingleOrDefault(filter);
-            }
+
+            return _context.Set<User>().SingleOrDefault(filter);
 
         }
     }

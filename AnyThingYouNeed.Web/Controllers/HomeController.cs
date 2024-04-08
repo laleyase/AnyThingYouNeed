@@ -20,7 +20,7 @@ namespace AnyThingYouNeed.Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         
-        public JsonResult MakeRequest(Request model)
+        public JsonResult MakeRequest([FromBody] Request model)
         {
 
             var addedRequest = _requestService.AddRequest(model);

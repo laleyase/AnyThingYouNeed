@@ -112,6 +112,7 @@
             dataType: "json",
             success: function (response) {
                 alert(response);
+                console.log("hfhsdfs")
             },
             error: function (response) {
                 console.log(response);
