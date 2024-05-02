@@ -1,93 +1,102 @@
 ﻿$(document).ready(function () {
-    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    $("#PhoneNumber").on("input", function () {
-        var phoneNumber1 = document.getElementById('PhoneNumber');
-        var numericPattern = /^[0-9]+$/;
+    // Define patterns outside of event handlers to avoid re-declaring them multiple times
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const numericPattern = /^[0-9]+$/;
 
-        var phoneNumber = phoneNumber1.value.replace(/\D/g, '');
-        if (phoneNumber.length > 0) {
-            var formattedPhoneNumber = '(' + phoneNumber.substring(0, 3) + ') ' +
-                phoneNumber.substring(3, 6) + '-' +
-                phoneNumber.substring(6, 10);
-            phoneNumber1.value = formattedPhoneNumber;
+    // Helper function to format phone numbers
+    function formatPhoneNumber(phone) {
+        let cleaned = phone.replace(/\D/g, '');
+        let formatted = '';
+        if (cleaned.length >= 3) {
+            formatted = `(${cleaned.substring(0, 3)}) `;
         }
-        var phoneNumber2 = phoneNumber1.value.replace('(', '').replace(')', '').replace('-', '').replace(' ', '');
-        if (!numericPattern.test(phoneNumber2)) {
-            document.getElementById('phone-error-message').textContent = 'Telefon numarası sadece rakamlardan oluşmalıdır.';
-            return;
-        } else {
-            document.getElementById('phone-error-message').textContent = '';
+        if (cleaned.length >= 6) {
+            formatted += cleaned.substring(3, 6) + '-';
         }
-    })
-    $("#EMail").on("input", function () {
-        var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        var eMail = document.getElementById('EMail');
-        var email = eMail.value.trim();
-        var formattedEmail = email.toLowerCase();
-
-
-        if (!emailPattern.test(formattedEmail)) {
-            document.getElementById('email-error-message').textContent = 'Geçersiz e-posta adresi!';
-        } else {
-            document.getElementById('email-error-message').textContent = '';
+        if (cleaned.length > 6) {
+            formatted += cleaned.substring(6, 10);
         }
-    })
-    function getCheckboxValue(item) {
-        var checkBox = document.getElementById(item);
-        var isChecked = checkBox.checked;
-
-        if (isChecked) {
-            return true
-        } else {
-            return false
-        }
+        return formatted;
     }
+
+    // Helper function to check if a checkbox is checked
+    function getCheckboxValue(id) {
+        const checkbox = document.getElementById(id);
+        return checkbox ? checkbox.checked : false;
+    }
+
+    // Phone number input event handler
+    $("#PhoneNumber").on("input", function () {
+        const phoneInput = $(this);
+        const rawPhoneNumber = phoneInput.val().replace(/\D/g, '');
+
+        // Format the phone number
+        const formattedPhoneNumber = formatPhoneNumber(rawPhoneNumber);
+        phoneInput.val(formattedPhoneNumber);
+
+        const cleanedPhoneNumber = formattedPhoneNumber.replace(/\D/g, '');
+        if (!numericPattern.test(cleanedPhoneNumber)) {
+            $("#phone-error-message").text("Phone number is required and it must consist of numbers!");
+        } else {
+            $("#phone-error-message").text("");
+        }
+    });
+
+    // Email input event handler
+    $("#EMail").on("input", function () {
+        const emailInput = $(this);
+        const email = emailInput.val().trim().toLowerCase();
+
+        if (!emailPattern.test(email)) {
+            $("#email-error-message").text("Invalid e-mail address!");
+        } else {
+            $("#email-error-message").text("");
+        }
+    });
+
+    // Button click event handler to make a request
     $("#MakeRequest").click(function () {
-        var name = document.getElementById("name").value;
-        var sureName = document.getElementById("surname").value;
-        var phoneNumber = document.getElementById("PhoneNumber").value;
-        var phoneNumber2 = phoneNumber.replace('(', '').replace(')', '').replace('-', '').replace(' ', '');
-        var roomNumber = document.getElementById("RoomNumber").value;
-        var hair = getCheckboxValue("Hair");
-        var skin = getCheckboxValue("Skin");
-        var teeth = getCheckboxValue("Teeth");
-        var taxi = getCheckboxValue("Taxi");
-        var vip = getCheckboxValue("Vip");
-        var phone = getCheckboxValue("Phone");
-        var pc = getCheckboxValue("Pc");
-        var pcpOther = getCheckboxValue("PcpOther");
-        var traditionalProduct = getCheckboxValue("TraditionalProduct");
-        var tpOther = getCheckboxValue("TpOther");
-        var tpOtherDetail = document.getElementById("TpOtherDetail").value;
-        var message = document.getElementById("message").value;
-        var istanbulTour = getCheckboxValue("IstanbuTour");
-        var otherPcpDetail = document.getElementById("PcpOtherDetail").value;
+        // Get the values from input fields
+        const name = $("#name").val();
+        const surname = $("#surname").val();
+        const phoneNumber = $("#PhoneNumber").val().replace(/\D/g, '');
+        const email = $("#EMail").val().trim().toLowerCase();
+        const roomNumber = $("#RoomNumber").val();
+        const message = $("#message").val();
 
+        // Get checkbox values
+        const hair = getCheckboxValue("Hair");
+        const skin = getCheckboxValue("Skin");
+        const teeth = getCheckboxValue("Teeth");
+        const taxi = getCheckboxValue("Taxi");
+        const vip = getCheckboxValue("Vip");
+        const phone = getCheckboxValue("Phone");
+        const pc = getCheckboxValue("Pc");
+        const pcpOther = getCheckboxValue("PcpOther");
+        const traditionalProduct = getCheckboxValue("TraditionalProduct");
+        const tpOther = getCheckboxValue("TpOther");
+        const tpOtherDetail = $("#TpOtherDetail").val();
+        const istanbulTour = getCheckboxValue("IstanbuTour");
+        const otherPcpDetail = $("#PcpOtherDetail").val();
 
-
-        var numericPattern = /^[0-9]+$/;
-        var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-        if (!numericPattern.test(phoneNumber2)) {
-            alert = 'Telefon numarası sadece rakamlardan oluşmalıdır.';
-        }
-        var eMail = document.getElementById("EMail").value;
-
-        var numericPattern = /^[0-9]+$/;
-
-        var email = eMail.trim();
-        var formattedEmail = email.toLowerCase();
-        var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-        if (!emailPattern.test(formattedEmail)) {
-            emailInput.value = formattedEmail;
-            alert = 'Geçersiz e-posta adresi!';
+        // Validate the phone number and email
+        if (!numericPattern.test(phoneNumber)) {
+            alert("Phone number is required and it must consist of numbers!");
+            return;
         }
 
-        var requestModel = {
+        if (!emailPattern.test(email)) {
+            alert("Invalid e-mail address!");
+            return;
+        }
+
+
+        // Create the request model
+        const requestModel = {
             Name: name,
-            Surname: sureName,
-            PhoneNumber: phoneNumber2,
-            EMail: eMail,
+            Surname: surname,
+            PhoneNumber: phoneNumber,
+            EMail: email,
             RoomNumber: roomNumber,
             Hair: hair,
             Skin: skin,
@@ -104,22 +113,8 @@
             IstanbulTour: istanbulTour,
             OtherPcpDetail: otherPcpDetail,
         };
-        $.ajax({
-            url: "/Home/MakeRequest",
-            type: "POST",
-            data: JSON.stringify(requestModel),
-            contentType: "application/json",
-            dataType: "json",
-            success: function (response) {
-                alert(response);
-                console.log("hfhsdfs")
-            },
-            error: function (response) {
-                console.log(response);
 
-                alert("hata " + response);
-
-            }
-        });
     });
-});
+
+}); 
+
